@@ -8,32 +8,12 @@
  */
 int main(int argc, char **argv)
 {
-  // Parse command line
   DIR *d;
-  char *path;
-
-  // finding directory
-  if (argc == 1)
-  {
-    path = ".";
-    printf("Directory: %s\n", path);
-  }
-  else if (argc == 2)
-  {
-    path = argv[1];
-    printf("Directory: %s\n", path);
-  }
-  else
-  {
-    printf("Cannot find directory\n");
-    exit(1);
-  }
-  // Open directory
-  d = opendir(path);
+  d = opendir(".");
   // checking for errors
   if (d == NULL)
   {
-    printf("Cannot open '%s'\n", path);
+    printf("Cannot open directory\n");
     exit(2);
   }
   // Repeatly read and print entries
